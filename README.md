@@ -43,7 +43,7 @@ Personal insights, questions, or things to review later.
 ## 🧭 Topics Roadmap (based on Jeremy's IT Lab CCNA syllabus)
 
 - [x] Network Devices
-- [ ] Interfaces & Cables
+- [x] Interfaces & Cables
 - [ ] How the TCP/IP Model Actually Works
 - [ ] Intro to the Cisco CLI
 - [ ] Ethernet LAN Switching
