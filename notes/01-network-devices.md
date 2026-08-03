@@ -41,7 +41,7 @@ This is the introductory lesson of the CCNA 200-301 course, laying the foundatio
 | Firewall | Filter inbound/outbound traffic | Varies |
 
 ### Example Data Flow (Branch-to-Branch)
-`PC1 (New York) → SW1 → R1 → Internet → R2 → SW2 → SRV1 (Tokyo)`, with firewalls (FW1/FW2) inspecting traffic along the path.
+![Example Dataflow](./notes/assets/01-network-devices/01-example-dataflow.png)
 
 ## Personal Notes
 There are 5 foundational nodes in a network: 3 network devices (switch, router, firewall) that manage and direct traffic, and 2 end hosts (server, client) that exchange data with each other. This is not an exhaustive list — additional device types (e.g., access points, load balancers) will be covered later in the course.
