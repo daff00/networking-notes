@@ -44,7 +44,7 @@ Personal insights, questions, or things to review later.
 
 - [x] Network Devices
 - [x] Interfaces & Cables
-- [ ] How the TCP/IP Model Actually Works
+- [x] How the TCP/IP Model Actually Works
 - [ ] Intro to the Cisco CLI
 - [ ] Ethernet LAN Switching
 - . . .
