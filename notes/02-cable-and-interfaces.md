@@ -40,7 +40,9 @@ This lesson covers how network devices are physically connected via cables, focu
 
 ### Copper Cable Types
 - **Straight-through cable**: pin 1 connects to pin 1, pin 2 to pin 2, and so on. Used when connecting devices with opposite Tx/Rx assignments, such as PC to switch or router to switch.  ![straight through cable](./assets/02-cable-and-interfaces/straight-through-cable.png)
+
 - **Crossover cable**: transmit pins on one end connect to receive pins on the other end (1 to 3, 2 to 6). Used when connecting devices with the same Tx/Rx assignments, such as PC to PC, router to router, switch to switch, or PC to router. ![crossover cable](./assets/02-cable-and-interfaces/crossover-cable.png)
+
 - **Auto MDI-X**: a feature on modern network devices that automatically detects which pins the connected device uses to transmit, then adjusts its own Tx/Rx pins to match. This removes the need to manually pick between straight-through and crossover cables.
 
 ### Fiber-Optic Connections

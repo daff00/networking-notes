@@ -7,11 +7,11 @@ The layered approach makes networks modular, scalable, and interoperable. Device
 
 The five-layer TCP/IP model consists of:
 
-1. **Application Layer** – Communication between applications (HTTP, HTTPS, DNS, FTP, etc.)
-2. **Transport Layer** – End-to-end communication between processes using TCP/UDP and port numbers.
-3. **Internet Layer** – End-to-end communication between hosts using IP addresses and routers.
-4. **Local Network Layer** – Hop-to-hop delivery within a LAN using Ethernet/Wi-Fi, MAC addresses, and switches.
-5. **Physical Layer** – Transmits bits as electrical, optical, or radio signals.
+1. **Application Layer**, communication between applications (HTTP, HTTPS, DNS, FTP, etc.)
+2. **Transport Layer**, end-to-end communication between processes using TCP/UDP and port numbers.
+3. **Internet Layer**, end-to-end communication between hosts using IP addresses and routers.
+4. **Local Network Layer**, hop-to-hop delivery within a LAN using Ethernet/Wi-Fi, MAC addresses, and switches.
+5. **Physical Layer**, transmits bits as electrical, optical, or radio signals.
 
 Communication follows **encapsulation**, where each lower layer adds its own header (and Layer 2 also adds a trailer), and **decapsulation**, where the receiving host removes each layer's information in reverse order.
 
@@ -22,8 +22,8 @@ The TCP/IP model is a conceptual framework rather than a strict rule. Different 
 ## Key Concepts
 
 ### Protocols & Standards
-- **Protocol** = Rules that define how devices communicate.
-- **Standard** = Agreed specification describing how a protocol or technology should work.
+- **Protocol**: rules that define how devices communicate.
+- **Standard**: agreed specification describing how a protocol or technology should work.
 - Open standards allow interoperability between devices from different vendors.
 
 ### History
@@ -53,6 +53,14 @@ The TCP/IP model is a conceptual framework rather than a strict rule. Different 
 
 ### TCP/IP Five-Layer Model
 
+| Layer | Name |
+|---|---|
+| 5 | Application |
+| 4 | Transport |
+| 3 | Internet |
+| 2 | Local Network |
+| 1 | Physical |
+
 #### 5. Application Layer
 **Purpose**
 - Communication between application processes.
@@ -80,8 +88,8 @@ The TCP/IP model is a conceptual framework rather than a strict rule. Different 
 - UDP
 
 **Examples**
-- HTTP → Port 80
-- FTP → Port 21
+- HTTP uses Port 80
+- FTP uses Port 21
 
 **Key Idea**
 - Process-to-process communication.
@@ -155,64 +163,36 @@ The TCP/IP model is a conceptual framework rather than a strict rule. Different 
 **Hop**
 - One step between devices.
 - Example:
-  - PC → Router = 1 hop
-  - Router → Router = 1 hop
-  - Router → Server = 1 hop
+  - PC to Router is 1 hop
+  - Router to Router is 1 hop
+  - Router to Server is 1 hop
 
 **End-to-End**
 - Communication from the source host to the final destination host.
+
+![Hop vs End-to-End](./assets/03-tcp-ip-model/hop-vs-end-to-end.svg)
 
 ---
 
 ### Encapsulation
 
-When sending data:
+When sending data, each layer wraps the data with information needed for its own function, in this order:
 
-Application Data
-
-↓
-
-Transport Header
-
-↓
-
-Internet Header
-
-↓
-
-Local Network Header + Trailer
-
-↓
-
-Physical Signals
-
-Each layer wraps the data with information needed for its own function.
-
----
+1. Application Data
+2. Transport Header
+3. Internet Header
+4. Local Network Header + Trailer
+5. Physical Signals
 
 ### Decapsulation
 
-Receiving process:
+The receiving host reverses the process:
 
-Signals
-
-↓
-
-Remove Layer 2 Header & Trailer
-
-↓
-
-Remove Layer 3 Header
-
-↓
-
-Remove Layer 4 Header
-
-↓
-
-Application receives data
-
----
+1. Signals
+2. Remove Layer 2 Header & Trailer
+3. Remove Layer 3 Header
+4. Remove Layer 4 Header
+5. Application receives data
 
 ### Protocol Data Units (PDUs)
 
@@ -225,6 +205,10 @@ Application receives data
 | Local Network | Frame |
 | Physical | Bits |
 
+![Encapsulation](./assets/03-tcp-ip-model/encapsulation.png)
+![Decapsulation](./assets/03-tcp-ip-model/decapsulation.png)
+![PDU](./assets/03-tcp-ip-model/PDU.png)
+
 ---
 
 ### Payload
@@ -232,9 +216,9 @@ Application receives data
 The **payload** is everything inside a protocol's header.
 
 Examples:
-- Layer 4 payload = Application data
-- Layer 3 payload = Transport segment/datagram
-- Layer 2 payload = IP packet
+- Layer 4 payload is the application data
+- Layer 3 payload is the transport segment/datagram
+- Layer 2 payload is the IP packet
 
 ---
 
@@ -255,10 +239,10 @@ Example:
 Equivalent layers communicate logically.
 
 Examples:
-- HTTP ↔ HTTP
-- TCP ↔ TCP
-- IP ↔ IP
-- Ethernet ↔ Ethernet
+- HTTP to HTTP
+- TCP to TCP
+- IP to IP
+- Ethernet to Ethernet
 
 ---
 
@@ -325,19 +309,19 @@ Know:
 ## Personal Notes
 - Think of networking as a **delivery service**, where each layer handles one responsibility.
 - Remember the addressing hierarchy:
-  - **Port Number → Application/Process**
-  - **IP Address → Host**
-  - **MAC Address → Next Hop**
+  - **Port Number leads to Application/Process**
+  - **IP Address leads to Host**
+  - **MAC Address leads to Next Hop**
 - Routers mainly operate at **Layer 3 (Internet)**.
 - Switches mainly operate at **Layer 2 (Local Network)**.
 - Physical devices transmit **bits**, not packets or frames.
 - Focus on understanding the responsibilities of each layer rather than memorizing every protocol immediately.
 - A useful memory flow:
-  - **Application → Process**
-  - **Transport → Ports**
-  - **Internet → IP**
-  - **Local Network → MAC**
-  - **Physical → Bits**
+  - **Application leads to Process**
+  - **Transport leads to Ports**
+  - **Internet leads to IP**
+  - **Local Network leads to MAC**
+  - **Physical leads to Bits**
 
 ## References
-- Jeremy's IT Lab: [**How the TCP/IP Model Actually Works | CCNA Day 3**](https://youtu.be/yM-XNq9ADlI?si=pC_pcz3AbsZqwqQx)
+- Jeremy's IT Lab: [How the TCP/IP Model Actually Works | CCNA Day 3](https://youtu.be/yM-XNq9ADlI?si=pC_pcz3AbsZqwqQx)
