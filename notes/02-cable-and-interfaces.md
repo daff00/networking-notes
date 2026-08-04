@@ -27,6 +27,7 @@ This lesson covers how network devices are physically connected via cables, focu
 10BASE-T and 100BASE-T use only 2 of the 4 available wire pairs. 1000BASE-T and 10GBASE-T use all 4 pairs, since each pair becomes bidirectional, which allows much higher throughput.
 
 ### Tx/Rx Pin Assignments (10BASE-T / 100BASE-T)
+![pin assignment](./assets/02-cable-and-interfaces/pin-assignment.png)
 
 | Device | Transmit (Tx) | Receive (Rx) |
 |---|---|---|
@@ -38,15 +39,15 @@ This lesson covers how network devices are physically connected via cables, focu
 **Full-duplex** transmission allows both devices to send data at the same time without collisions, since transmit and receive happen on separate wire pairs. It works a bit like a phone call, where both people can talk and listen at once, as opposed to *half-duplex* (like a walkie-talkie), where only one side can transmit at a time. Switches are the exception here, since their Tx/Rx pin assignment is the reverse of PCs, routers, and firewalls.
 
 ### Copper Cable Types
-- **Straight-through cable**: pin 1 connects to pin 1, pin 2 to pin 2, and so on. Used when connecting devices with opposite Tx/Rx assignments, such as PC to switch or router to switch.
-- **Crossover cable**: transmit pins on one end connect to receive pins on the other end (1 to 3, 2 to 6). Used when connecting devices with the same Tx/Rx assignments, such as PC to PC, router to router, switch to switch, or PC to router.
+- **Straight-through cable**: pin 1 connects to pin 1, pin 2 to pin 2, and so on. Used when connecting devices with opposite Tx/Rx assignments, such as PC to switch or router to switch.  ![straight through cable](./assets/02-cable-and-interfaces/straight-through-cable.png)
+- **Crossover cable**: transmit pins on one end connect to receive pins on the other end (1 to 3, 2 to 6). Used when connecting devices with the same Tx/Rx assignments, such as PC to PC, router to router, switch to switch, or PC to router. ![crossover cable](./assets/02-cable-and-interfaces/crossover-cable.png)
 - **Auto MDI-X**: a feature on modern network devices that automatically detects which pins the connected device uses to transmit, then adjusts its own Tx/Rx pins to match. This removes the need to manually pick between straight-through and crossover cables.
 
 ### Fiber-Optic Connections
 Fiber-optic cabling uses a **glass core** to transmit data as light instead of electrical signals, which makes it immune to EMI and capable of much longer distances than copper. Fiber cables have **separate strands for transmit and receive**, and they connect to switches or routers through an **SFP transceiver (Small Form-Factor Pluggable)**, a small pluggable module that converts electrical signals to optical signals and back.
 
 ### Fiber-Optic Cable Types
-There are two fiber types, distinguished by **mode** (the path or angle at which light enters the fiber core):
+There are two fiber types, distinguished by **mode** (the path or angle at which light enters the fiber core): ![fiber optic cable](./assets/02-cable-and-interfaces/fiber-optic-cable.png)
 - **Multimode fiber (MMF)** has a wider core that allows multiple light angles (modes) to enter. It covers shorter maximum distances and is cheaper, since it uses LED-based transmitters.
 - **Single-mode fiber (SMF)** has a narrower core where light enters at a single angle through a laser-based transmitter. It allows much longer distances but costs more.
 
@@ -74,4 +75,4 @@ There are two fiber types, distinguished by **mode** (the path or angle at which
 Key things to remember for the exam: which wire pairs each device transmits/receives on (UTP), the IEEE standard number for each cable type, and the cable specs (speed, mode, max distance). It's worth noting that copper and fiber standards use different IEEE suffixes: 802.3u, 802.3ab, and 802.3an for copper, versus 802.3z and 802.3ae for fiber.
 
 ## References
-- Jeremy's IT Lab: CCNA 200-301, "Interfaces and Cables" ([video](https://youtu.be/ieTH5lVhNaY))
+- Jeremy's IT Lab: [Interfaces and Cables](https://youtu.be/ieTH5lVhNaY)
