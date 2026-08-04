@@ -13,17 +13,20 @@ This is the introductory lesson of the CCNA 200-301 course, laying the foundatio
 ### Network Devices
 
 #### Switch
+![switch](./assets/01-network-devices/switch.png)
 - Connects end hosts (PCs, servers, printers, etc.) within the same **LAN (Local Area Network)**.
 - Has many interfaces/ports, typically 24 or more.
 - Cannot provide connectivity between different LANs or to the Internet.
 - Example models: Cisco Catalyst 9200, 3650.
 
 #### Router
+![router](./assets/01-network-devices/router.png)
 - Provides connectivity **between LANs** and forwards traffic to and from the Internet.
 - Has fewer interfaces compared to switches.
 - Example models: Cisco ISR 900, 1000, 4000 series.
 
 #### Firewall
+![firewall](./assets/01-network-devices/firewall.png)
 - A security device that monitors and controls traffic entering and exiting a network based on configured rules.
 - Can be placed **outside** the router, facing the Internet, or **inside** the network, facing end hosts, or both.
 - **Network firewall**: hardware appliance that filters traffic between networks (the focus of this course).
