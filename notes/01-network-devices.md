@@ -49,7 +49,7 @@ This is the introductory lesson of the CCNA 200-301 course, laying the foundatio
 ![Example Dataflow](./assets/01-network-devices/01-example-dataflow.png)
 
 ## Personal Notes
-There are 5 foundational nodes in a network: 3 network devices (switch, router, firewall) that manage and direct traffic, and 2 end hosts (server, client) that exchange data with each other. This is not an exhaustive list, since additional device types, such as access points and load balancers, will be covered later in the course.
+This lesson introduces five foundational node types: 3 network devices (switch, router, firewall) that manage and direct traffic, and 2 end hosts (server, client) that exchange data with each other. This is not an exhaustive list, since additional device types, such as access points and load balancers, will be covered later in the course.
 
 ## References
 - Jeremy's IT Lab: [Network Devices - Introduction](https://youtu.be/H8W9oMNSuwo?si=il1AoiYuEDuoPdFW)
