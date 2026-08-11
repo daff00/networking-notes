@@ -1,6 +1,8 @@
 # Networking Notes
 
-Learning computer networking through notes, labs, and practical exercises — following the **CCNA** path.
+A structured collection of notes, practical labs, and hands-on exercises for learning computer networking through the **Cisco Certified Network Associate (CCNA)** curriculum.
+
+These notes are designed to document both theoretical concepts and practical experience throughout the learning journey. The repository is **Obsidian-compatible** and is best experienced using [Obsidian](https://obsidian.md/).
 
 ## 📚 Learning Resources
 
