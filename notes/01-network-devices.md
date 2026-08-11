@@ -1,9 +1,17 @@
 # Network Devices - Introduction
 
 ## Summary
-This is the introductory lesson of the CCNA 200-301 course, laying the foundation for the rest of the material. It defines what a computer network is (a system that allows nodes to share resources) and introduces the basic building blocks of a network: switches, routers, firewalls, servers, and clients. Using simple diagrams, such as two PCs connected by a cable and an enterprise network spanning two branch offices, the lesson shows how these devices work together to let end hosts communicate locally and across the Internet.
+This note lesson serves as the foundation for the entire CCNA (Cisco Certified Network Associate) 200-301 course. The course is completely free and covers everything on the official Cisco exam topics list, though it is also includes extra context to help build general networking intuition. You do need any prior background in networking, IT, or programming to get started; the only requirement is a basic familiarity with computers.
 
+To study effectively, Jeremy recommends using three primary resources alongside the lectures:
+- **End-of-video quizzes** to practice Cisco-style exam questions.
+- **Packet Tracer practice labs** to get hands-on experience with Cisco's network simulation software.
+- **Anki flashcards** to help memorize technical details. For efficiency, Jeremy suggests creating one central "CCNA" deck and transferring new cards into it, rather than keeping dozens of separate mini-decks.
 ## Key Concepts
+### What is a [[Network]]?
+Academic definition can sometimes feel overly complicated. For example, Wikipedia defines a computer network as a digital telecommunications network that allows nodes to share resources.
+
+To make this easier to understand, Jeremy explains that a network is 
 
 ### End Hosts: Client & Server
 - **Client**: a device that accesses a service made available by a server.
@@ -13,7 +21,8 @@ This is the introductory lesson of the CCNA 200-301 course, laying the foundatio
 ### Network Devices
 
 #### Switch
-![switch](./assets/01-network-devices/switch.png)
+<img src="./assets/01-network-devices/switch.png" alt="" width=300>
+
 - Connects end hosts (PCs, servers, printers, etc.) within the same **LAN (Local Area Network)**.
 - Has many interfaces/ports, typically 24 or more.
 - Cannot provide connectivity between different LANs or to the Internet.
