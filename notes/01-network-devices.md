@@ -9,7 +9,7 @@ To study effectively, Jeremy recommends using three primary resources alongside 
 - **Anki flashcards** to help memorize technical details. For efficiency, Jeremy suggests creating one central "CCNA" deck and transferring new cards into it, rather than keeping dozens of separate mini-decks.
 ---
 ## Key Concepts
-### What is a Network?
+### What is a [[Network]]?
 Academic definition can sometimes feel overly complicated. For example, Wikipedia defines a computer network as a digital telecommunications network that allows nodes to share resources.
 
 To make this easier to understand, Jeremy explains that *a network is simply two or more devices connected so they can share resources and have a conversation with each other.*
@@ -17,8 +17,8 @@ To make this easier to understand, Jeremy explains that *a network is simply two
 - **End Hosts (Endpoints)**: These are the devices at the edge of the network that actually generate or consume data. Clients and servers both fall under this umbrella term.
 ### Clients and Servers
 In any network transaction, end hosts act as either a client or a server. These roles depend entirely on who is asking for data and who is providing it.
-- **Client**: *A device that requests and accesses a service or file.* Examples include a Windows desktop PC, macOS iMac, or an Apple iPhone.
-- **Server**: *A device that provides function, files, or services to clients.* While we often picture powerful Dell or IBM hardware stacked in massive data centers, any standard client device can also act as a server
+- **Client**: *A device that requests and accesses a service or file.* Examples include a Windows desktop PC, macOS iMac, or an Apple iPhone. [[Client]]
+- **Server**: *A device that provides function, files, or services to clients.* While we often picture powerful Dell or IBM hardware stacked in massive data centers, any standard client device can also act as a server. [[Server]]
 - **Dynamic Roles:** The same physical device can change roles depending on the situation
 #### Three Key Examples of Client-Server Dynamics
 1. **Direct Cable File Share**: If PC1 is connected to PC2 and requests a file called `image.jpg`, PC1 acts as the client because it is asking for the file. PC2 acts as the server because it is fulfilling that request and sending the image.  <br> <center><img src="./assets/01-network-devices/01-simple-network.png" alt="" width=300></center> <center> <small> Source: Jeremy's IT Lab <a href="https://youtu.be/H8W9oMNSuwo?si=a8oadj1_WOtS9ios"># Free CCNA | Network Devices | Day 1 | CCNA 200-301 Complete Course</a></small></center> 
@@ -28,18 +28,18 @@ In any network transaction, end hosts act as either a client or a server. These 
    <center><img src="./assets/01-network-devices/01-dynamic-server-clients-airdrop.png" alt="" width=300></center> <center> <small> Source: Jeremy's IT Lab <a href="https://youtu.be/H8W9oMNSuwo?si=a8oadj1_WOtS9ios"># Free CCNA | Network Devices | Day 1 | CCNA 200-301 Complete Course</a></small></center> 
 ---
 ### Core Network Devices
-1. **Switches**
+1. **Switches** [[Switch]]
 	- **Primary Purpose:** A switch is used to connect and aggregate multiple end hosts (like PCs, and network printers) within the same local area.
 	- **How They Work:** They provide connectivity to devices residing in the same LAN (Local Area Network). A LAN refers to a localized area, such as a single office floor, a small home network, or an entire small office.
 	- **Physical Characteristics:** Switches are easily recognizable because they have a high density of physical ports, typically featuring 5, 8, 16, 24, or more connections.
 	- **Key Limitations:** Switches cannot connect directly to the Internet, nor can they send data between entirely separate LANs.
 	- **Example Models**: *Cisco Catalyst 9200 and Catalyst 3650* (Cisco's standard enterprise-grade switches)
-2. **Routers**
+2. **Routers** [[Router]]
 	- **Primary Purpose:** Routers do the opposite of switches by connecting entirely separate LANs together and forwarding data across the Internet.
 	- **Physical Characteristics:** Routers have relatively few physical ports compared to switches.
 	- **How They Work:** If PC1 in a New York office wants to communicate with Server 1 in a Tokyo office, the local switch cannot help it reach Tokyo. Instead, the switch forwards the traffic to the local router, which has the intelligence to direct the data across the Internet toward the destination.
 	- **Example Models:** Cisco ISR (Integrated Services Router) 900, 1000, and 4000 series
-3. **Firewalls**
+3. **Firewalls** [[Firewall]]
 	- **Primary Purpose:** A firewall is a dedicated security device designed to protect your network by monitoring and controlling traffic entering and exiting the network based on strict security rules.
 	- **Why They Are Vital:** Routers only provide very basic security features. Because of the constant threat of attackers on the Internet trying to steal information or damage corporate assets, networks require dedicated firewalls to drop unauthorized traffic while letting safe business data pass through.
 	- **Placement:** Firewalls are highly flexible. They can be placed "outside" the router (facing the raw Internet) or "inside" the network (facing your local devices), and sometimes networks use both placements.
