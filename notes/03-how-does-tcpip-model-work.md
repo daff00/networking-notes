@@ -1,46 +1,27 @@
-# TCP/IP Model & Internet Protocol Suite
-
 ## Summary
-The Internet Protocol Suite (TCP/IP) is the collection of protocols that enables communication over the Internet and modern computer networks. Instead of treating networking as one large process, TCP/IP divides communication into layers, where each layer has a specific responsibility and provides services to the layer above it.
-
-The layered approach makes networks modular, scalable, and interoperable. Devices from different vendors can communicate because they implement the same open standards defined by organizations such as the IEEE and IETF.
-
-The five-layer TCP/IP model consists of:
-
-1. **Application Layer**, communication between applications (HTTP, HTTPS, DNS, FTP, etc.)
-2. **Transport Layer**, end-to-end communication between processes using TCP/UDP and port numbers.
-3. **Internet Layer**, end-to-end communication between hosts using IP addresses and routers.
-4. **Local Network Layer**, hop-to-hop delivery within a LAN using Ethernet/Wi-Fi, MAC addresses, and switches.
-5. **Physical Layer**, transmits bits as electrical, optical, or radio signals.
-
-Communication follows **encapsulation**, where each lower layer adds its own header (and Layer 2 also adds a trailer), and **decapsulation**, where the receiving host removes each layer's information in reverse order.
-
-The TCP/IP model is a conceptual framework rather than a strict rule. Different references may use 4-layer, 5-layer, or 7-layer models, with the OSI model remaining popular as a teaching tool despite TCP/IP being the protocol suite used in real-world networks.
+The Internet Protocol Suite (commonly known as TCP/IP) is the universal family of rules that makes communication over the Internet and modern computer networks possible. Instead of treating networking as one single, massive process, TCP/IP divides communication into distinct, manageable layers. Each layer has a highly specialized responsibility and provides services to the layer directly above it while relying on the services of the layer directly below it. This modular architecture makes modern networks scalable and interoperable, allowing devices from completely different vendors to communicate seamlessly because they implement the same open standards.
 
 ---
-
 ## Key Concepts
-
-### Protocols & Standards
-- **Protocol**: rules that define how devices communicate.
-- **Standard**: agreed specification describing how a protocol or technology should work.
-- Open standards allow interoperability between devices from different vendors.
-
-### History
-- ARPANET (1969) originally used **NCP (Network Control Program)**.
-- TCP was developed by **Vint Cerf** and **Bob Kahn** in 1974.
-- TCP later split into:
-  - TCP (Transmission Control Protocol)
-  - IP (Internet Protocol)
-- ARPANET officially adopted TCP/IP on **January 1, 1983**.
-
+### The Importance of Protocols and Standards
+In network engineering, we rely on established rules to make communication possible. 
+- **[[Protocol]]:** A set of rules that define how devices communicate over a network. Protocols are essentially the languages that computers use to talk. Computer using different protocols cannot exchange data.
+- **[[Standard]]:** An agreed specification describing how a protocol or technology should work. When manufacturers follow these open, vendor-neutral standards, devices of all types can work together on the same network.
+---
+### A Brief History of TCP/IP
+Understanding how the modern Internet came to be helps clarify why we use these specific rules today.
+- **The Early Days (ARPANET):** Funded by the US Department of Defense, the ARPANET came online in 1969 to connect massive mainframe computers (powerful, centralized computers used by large organizations) at universities and laboratories. It originally used a rule set called the Network Control Program (NCP).
+- **The Development of TCP:** In 1974, Vint Cerf and Bob Kahn began developing the Transmission Control Program. This program was later split into two separate protocols that we still use today: the Transmission Control Protocol (TCP) and the Internet Protocol (IP).
+- **The Great Transition:** The ARPANET officially switched over to TCP/IP on January 1, 1983. Because TCP/IP was published as a set of open standards that any company could implement, and because it could run over many different types of networks, it quickly became the dominant global standard over competing vendor-owned options.
+---
 ### Standards Organizations
-- **IEEE**
-  - Ethernet (IEEE 802.3)
-  - Wi-Fi (IEEE 802.11)
+Most network standards are created by independent organizations rather than a single manufacturer, allowing engineers from different companies to collaborate. Two of the most important groups are:
+- **IEEE (Institute of Electrical and Electronics Engineers)** 
+  - Defines physical transmission and local network technologies (physical cable types, wireless radio frequencies, and how signals are sent over physical mediums).
+  - Known for: Standardizing Ethernet (IEEE 802.3) and Wi-Fi (IEEE 802.11)
   - Defines physical transmission and local network technologies.
-- **IETF**
-  - Defines Internet protocols.
+- **IETF (Internet Engineering Task Force)** 
+  - Defines core Internet protocols.
   - Publishes standards as **RFC (Request for Comments)** documents.
   - Examples:
     - IP
@@ -50,175 +31,61 @@ The TCP/IP model is a conceptual framework rather than a strict rule. Different 
     - DNS
 
 ---
+### The Postal Mail Analogy
+To understand how network layers work without getting lost in technical jargon, Jeremy uses the analogy of mailing a physical letter to a friend.
 
+Imagine writing a letter addressed to your friend, Bob. You put the letter in an envelope, write his home address on the front, and drive it to your local post office. The post office loads your envelope into a truck and drives it to a sorting center, which then ships it to Bob's local post office. From there, a mail carrier delivers the envelope to Bob's house, where he opens it and reads your message.
+
+This simple physical mail system maps beautifully to the five layers of the TCP/IP network model:
+<center><img src="./assets/03-tcp-ip-model/mail-analogy.png" width="300" /></center>
+- **The Letter Content:** This represents the **Application Layer** (Layer 5), which is the actual data you want to convey.
+- **The Recipient (To: Bob):** This represents the **Transport Layer** (Layer 4), which identifies exactly which person (or software process) inside the destination house should receive the message.
+- **The House Address:** This represents the **Internet Layer** (Layer 3), which is the permanent, unique end-to-end destination of the building (or host computer).
+- **The Vehicles (Cars, Trucks, or Planes):** This represents the **Local Network Layer** (Layer 2), which physically moves the envelope from one specific point (or hop) to the next along the journey.
+- **The Roads and Flight Paths:** This represents the **Physical Layer** (Layer 1), which is the physical infrastructure that the vehicles travel on.
+
+**Why this analogy matters:** Just like in the mail system, what happens inside one layer does not disrupt the others. If you change the contents of your letter, the postal carrier does not have to change their driving route. Similarly, if the post office upgrades their delivery trucks to airplanes, the content of your letter remains completely unaffected. This independence is the core benefit of a modular, layered network.
+
+--- 
 ### TCP/IP Five-Layer Model
+In this course, we use a five-layer model to map out how networks operate. 
 
-| Layer | Name |
-|---|---|
-| 5 | Application |
-| 4 | Transport |
-| 3 | Internet |
-| 2 | Local Network |
-| 1 | Physical |
-
-#### 5. Application Layer
-**Purpose**
-- Communication between application processes.
-- Defines message formats and application-specific protocols.
-
-**Examples**
-- HTTP / HTTPS
-- FTP
-- TFTP
-- DNS
-- Email protocols
-
-**Key Idea**
-- Applications communicate using standardized protocols.
+| Layer | Name                                                                   |
+| ----- | ---------------------------------------------------------------------- |
+| 5     | [[Application Layer\|Application Layer]]                               |
+| 4     | [[Networking/knowledge-base/Transport Layer\|Transport Layer]]         |
+| 3     | [[Networking/knowledge-base/Internet Layer\|Internet Layer]]           |
+| 2     | [[Networking/knowledge-base/Local Network Layer\|Local Network Layer]] |
+| 1     | [[Networking/knowledge-base/Physical Layer\|Physical Layer]]           |
 
 ---
-
-#### 4. Transport Layer
-**Purpose**
-- End-to-end communication between application processes.
-- Identifies applications using **port numbers**.
-
-**Protocols**
-- TCP
-- UDP
-
-**Examples**
-- HTTP uses Port 80
-- FTP uses Port 21
-
-**Key Idea**
-- Process-to-process communication.
-
----
-
-#### 3. Internet Layer
-**Purpose**
-- End-to-end communication between hosts.
-- Uses IP addresses.
-- Routers operate primarily at this layer.
-
-**Protocols**
-- IPv4
-- IPv6
-- ICMP
-
-**Key Idea**
-- Host-to-host communication.
-
----
-
-#### 2. Local Network Layer
-**Purpose**
-- Hop-to-hop delivery within a LAN.
-
-**Uses**
-- MAC addresses
-- Switches
-
-**Protocols**
-- Ethernet
-- Wi-Fi
-
-**Key Idea**
-- Delivers data to the next device on the local network.
-
----
-
-#### 1. Physical Layer
-**Purpose**
-- Transmits raw bits over physical media.
-
-**Media**
-- Copper (UTP)
-- Fiber optic
-- Wireless radio
-
-**Defines**
-- Cables
-- Connectors
-- Signal types
-- Link speeds
-
----
-
 ### Layer Responsibilities
 
-| Layer | Responsible For | Uses |
-|--------|-----------------|------|
-| Application | Application communication | HTTP, DNS, FTP |
-| Transport | Process-to-process communication | TCP, UDP, Ports |
-| Internet | Host-to-host communication | IP, Routers |
-| Local Network | Hop-to-hop communication | Ethernet, Wi-Fi, MAC |
-| Physical | Signal transmission | Cables, Fiber, Radio |
+| Layer         | Responsible For                  | Uses                 |
+| ------------- | -------------------------------- | -------------------- |
+| Application   | Application communication        | HTTP, DNS, FTP       |
+| Transport     | Process-to-process communication | TCP, UDP, Ports      |
+| Internet      | Host-to-host communication       | IP, Routers          |
+| Local Network | Hop-to-hop communication         | Ethernet, Wi-Fi, MAC |
+| Physical      | Signal transmission              | Cables, Fiber, Radio |
 
 ---
-
-### Hop vs End-to-End
-
-**Hop**
-- One step between devices.
-- Example:
-  - PC to Router is 1 hop
-  - Router to Router is 1 hop
-  - Router to Server is 1 hop
-
-**End-to-End**
-- Communication from the source host to the final destination host.
-
-![Hop vs End-to-End](./assets/03-tcp-ip-model/hop-vs-end-to-end.svg)
-
----
-
-### Encapsulation
-
-When sending data, each layer wraps the data with information needed for its own function, in this order:
-
-1. Application Data
-2. Transport Header
-3. Internet Header
-4. Local Network Header + Trailer
-5. Physical Signals
-
-### Decapsulation
-
-The receiving host reverses the process:
-
-1. Signals
-2. Remove Layer 2 Header & Trailer
-3. Remove Layer 3 Header
-4. Remove Layer 4 Header
-5. Application receives data
-
-### Protocol Data Units (PDUs)
-
-| Layer | PDU Name |
-|--------|----------|
-| Application | Data |
-| Transport (TCP) | Segment |
-| Transport (UDP) | Datagram |
-| Internet | Packet |
-| Local Network | Frame |
-| Physical | Bits |
-
-![Encapsulation](./assets/03-tcp-ip-model/encapsulation.png)
-![Decapsulation](./assets/03-tcp-ip-model/decapsulation.png)
-![PDU](./assets/03-tcp-ip-model/PDU.png)
-
----
-
-### Payload
-
-The **payload** is everything inside a protocol's header.
-
-Examples:
-- Layer 4 payload is the application data
-- Layer 3 payload is the transport segment/datagram
-- Layer 2 payload is the IP packet
+### [[Networking/knowledge-base/Encapsulation|Encapsulation]]
+To understand how a single message contains all of this layered information, we look at how data is packaged and unpackaged. 
+#### Encapsulation (Sending Data)
+As a message moves down the network stack on the sending device, each layer wraps the data in a **header** containing the address and control information needed for that layer.
+1. **Application Data (Layer 5):** The software application prepares the raw message, like an HTTP web request. 
+2. **Transport Header (Layer 4):** The Transport Layer wraps the application data with a header containing source and destination port numbers. 
+3. **Internet Header (layer 3):** The internet layer wraps the transport segment with a header containing source and destination IP addresses.
+4. **Local Network Header + Trailer (Layer 2):** The Local Network layer wraps the packet with a header containing local MAC addresses, and it also adds a **trailer** at the end. The receving device uses this trailer to run checks and detect if any transmission errors occured on the cable. 
+5. **Physical Signals (Layer 1):** The physical layer takes the completed frame and transmits its bits as physical signals across the medium.
+### [[Networking/knowledge-base/Decapsulation|Decapsulation]]
+The receiving host processes the incoming stream of bits by reversing the encapsulation steps, moving up the network stack:
+1. The Physical layer receives the raw bits and passes them up.
+2. The Local Network layer reads the Layer 2 header and trailer to verify the local address and check for errors, then strips them off.
+3. The Internet layer reads the Layer 3 header to verify the IP address, then strips it off.
+4. The Transport layer reads the Layer 4 header to find the correct port number, then strips it off.
+5. The raw application data is delivered directly to the target software process.
 
 ---
 

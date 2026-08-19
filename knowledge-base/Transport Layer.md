@@ -1,0 +1,3 @@
+- **Purpose:** This layer provides end-to-end, process-to-process communication between specific application streams on the communicating hosts.
+- **Key Idea:** It uses **port numbers** to identify specific processes running on a host. For instance, a web server process might use port 80, while a file server process uses port 21. This allows a single computer to keep multiple types of data traffic separate.
+- **Protocols:** The two most prominent transport protocols are TCP (Transmission Control Protocol) and UDP (User Datagram Protocol).

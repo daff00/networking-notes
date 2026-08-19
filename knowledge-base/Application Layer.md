@@ -1,0 +1,3 @@
+- **Purpose:** This layer is where network communications meet software applications. It defines how application processes format, send, and interpret data.
+- **Key Idea:** It manages communication between application processes.
+- **Examples:** Common protocols here include HTTP and HTTPS for web browsing, FTP and TFTP for file transfers, and DNS (Domain Name System) for resolving domain names to IP addresses. Network infrastructure devices like routers and switches do not look at this high-level data; only the communicating endpoints process it.

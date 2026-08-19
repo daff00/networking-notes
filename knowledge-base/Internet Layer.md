@@ -1,0 +1,3 @@
+- **Purpose:** This layer is responsible for end-to-end communication between hosts across multiple connected networks. In this context, "Internet" refers to an internetwork, meaning multiple networks connected together.
+- **Key Idea:** It uses logical **IP addresses** to identify hosts, and it is the layer where **routers** primarily operate to forward data toward its final destination.
+- **Protocols:** IPv4, IPv6, and ICMP (Internet Control Message Protocol, used for error reporting and diagnostics).

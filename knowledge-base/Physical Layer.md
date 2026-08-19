@@ -1,0 +1,3 @@
+- **Purpose:** This layer is responsible for physically transmitting raw bits (the 0s and 1s) over physical media.
+- **Key Idea:** It defines the hardware, including cables, connectors, signaling types, and link speeds.
+- **Mediums:** Raw signals are sent as electrical currents over copper UTP cables, light pulses over fiber-optic cables, or wireless radio waves over Wi-Fi. Hardware like NICs (Network Interface Cards) operate at this layer.
