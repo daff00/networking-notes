@@ -1,0 +1,1 @@
+An agreed specification describing how a protocol or technology should work. When manufacturers follow these open, vendor-neutral standards, devices of all types can work together on the same network.

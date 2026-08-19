@@ -1,0 +1,1 @@
+A set of rules that define how devices communicate over a network. Protocols are essentially the languages that computers use to talk. Computer using different protocols cannot exchange data.

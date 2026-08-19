@@ -1,0 +1,1 @@
+*A device that provides function, files, or services to clients.*
