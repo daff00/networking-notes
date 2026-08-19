@@ -36,13 +36,13 @@ An RJ-45 port has 8 physical pins. However, different Ethernet speed standards u
 	- The physical pairings for the wires are Pair 1 (pins 1 and 2), Pair 2 (pins 3 and 6), Pair 3 (pins 4 and 5), and Pair 4 (pins 7 and 8).
 	- Instead of dedicating separate pairs for transmitting and receiving, **each of the four pairs is bidirectional**. This means that every single pair transmits and receives data simultaneously over the exact same wires, which is a major reason why there standards can achieve such high speeds.
 - **Distance Limit:** All copper twisted-pair cables have a maximum physical length limit of 100 meters for performance and techincal reasons. 
-
 #### Straight-Through vs Crossover Cables
 Because different devices use different pins to send and receive, we must use the correct type of cable. 
 - **Straight-Through Cable:** Pin 1 connects to pin 1, pin 2 connects to pin 2, and so on. This is used when connecting **different types of devices** (like a PC to a switch, or a router to a switch) because their internal pin configurations naturally line up to allow transmission and reception.
+  <center><img src="./assets/02-cable-and-interfaces/02-straight-through-cable.png" alt="" width=300></center>  
 - **Crossover Cable:** The transmitting and receiving pairs are reversed on one end of the cable. (pin 1 connects to pin 3, pin 2 connects to pin 6). This is required when connecting **identical types of devices** (like PC to PC, router to router, switch to switch) so that one device's transmit pins map directly to the other's receive pins.
+    <center><img src="./assets/02-cable-and-interfaces/02-crossover-cable.png" alt="" width=300></center>  
 - **Auto MDI-X:** This is a modern features that allows network ports to automatically detect which wires the neighboring device is transmitting on and adjust their own pins to match. Thanks to Auto MDI-X, you do not have to worry about choosing between straight-through and crossover cables unless you are working with very old equipment.
-
 ---
 ### Fiber-Optic Cabling
 While copper cables are great for local connections, they cannot go past 100 meters. For longer distances, or to connect high-performance routers and switches, we use **fiber-optic cables**. These plug into specialized ports using an **SFP (Small Form-factor Pluggable)** transceiver, which is a hot-swappable metal module that converts electrical signals into light.
@@ -50,9 +50,9 @@ While copper cables are great for local connections, they cannot go past 100 met
 Instead of electrical signals, fiber cables transmit pulses of light down a **fiberglass core**. The cable consists of four main layers: the glass core, the **cladding** (a reflective layer that keeps the light bouncing down the core), a protective buffer, and an outer jacket.
 
 There are two main types of fiber-optic cabling:
-
 1. **Multimode Fiber (MMF):** This cable has a wider glass core, allowing multiple angles (known as modes) of light-waves to travel down it at once. It uses cheaper, LED-based transmitters. While it supports distances much longer than 100 meters, it is still shorter and cheaper than single-mode fiber.
 2. **Single-mode Fiber (SMF):** This cable has an extremely narrow glass core, forcing light to travel straight down the center in a single mode. It requires highly precise, expensive laser-based transmitters. It is more costly, but it supports incredibly long distances.
+  <center><img src="./assets/02-cable-and-interfaces/02-fiber-optic-cable.png" alt="" width=300></center>  
 
 ---
 ### Ethernet Cabling Standards Comparison
