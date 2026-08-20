@@ -48,7 +48,7 @@ This simple physical mail system maps beautifully to the five layers of the TCP/
 
 --- 
 ### TCP/IP Five-Layer Model
-In this course, we use a five-layer model to map out how networks operate. 
+In this course, we use a five-layer model to map out how networks operate.
 
 | Layer | Name                                                                   |
 | ----- | ---------------------------------------------------------------------- |
@@ -88,107 +88,71 @@ The receiving host processes the incoming stream of bits by reversing the encaps
 5. The raw application data is delivered directly to the target software process.
 
 ---
+#### Hop-to-Hop vs End-to-end Communication
+To successfully deliver data across different networks, the TCP/IP model separates local physical movement from long-distance logical delivery.
+1. **Hop-to-Hop Communication**
+	- **Defnition:** A hop is defined as one physical step along the path between two devices, moving from one router or host to the next.
+	- **The Layer in Charge:** This is handled at **Layer 2 (Data Link/Local Network)**
+	- **How it Works:** Layer 2 uses physical **MAC Addresses** (unique identifiers burned into a device's network card) to deliver the data frame to the next immediate device in the chain.
+	- **The [[Networking/knowledge-base/Switch|Switch]] Exception:** Switches do not count as hops. A switch simply acts as an extension of the local network, allowing multiple local devices to connect to the same LAN.
+	- **Example Path:** If a message travels from PC1 to Router 1, then to Router 2, and finally to Server 1, the journey takes exactly **three hops** (PC1 to R1 is hop one, R1 to R2 is hop two, R2 to Server 1 is hop three.)
+2. **End-to-End Communication**
+	- **Definition:** This refers to the entire communication journey from the original source host all the way to the final destination host, regardless of how many intermediate devices sit in the middle.
+	- **The Layers in Charge:** This is handled at **Layer 3 (the Internet/Network Layer)** for host-to-host delivery, and **Layer 4 (the Transport Layer)** for process-to-process delivery.
+	- **How it Works:**
+		- **At Layer 3:** The Internet layer uses logical **IP Addresses** to identify the source and final destination hosts across multiple networks. Routers look at this layer 3 IP address to make forwarding decisions. 
+		- **At Layer 4:** The Transport layer uses **port numbers** (software-based identifiers) to make sure the data reaches the correct application process (like a specific web browser tab or email client) once it arrives at the destination host.
 
-### Layer Interaction
-
-#### Adjacent-Layer Interaction
-Each layer:
-- Uses services from the layer below.
-- Provides services to the layer above.
-
-Example:
-- Layer 3 relies on Layer 2.
-- Layer 4 relies on Layer 3.
-
----
-
-#### Same-Layer Interaction
-Equivalent layers communicate logically.
-
-Examples:
-- HTTP to HTTP
-- TCP to TCP
-- IP to IP
-- Ethernet to Ethernet
 
 ---
+#### Protocol Data Units (PDU) & Payloads
+<center><img src="Networking/notes/assets/03-tcp-ip-model/PDU.png" width="300"></center>
+At each stage of the packaging process, the data bundle is referred to by a specific name.
+-  **Segment:** The combination of application data and a Layer 4 header when using the TCP protocol.
+- **Datagram:** The combination of application data and a Layer 4 header when using the UDP protocol.
+- **Packet:** The combination of a Transport PDU and a Layer 3 Internet header. This is the most common general term used for network messages, but technically it refers specifically to Layer 3.
+- **Frame:** The combination of an IP packet and a Layer 2 header and trailer. The frame is what is actually transmitted over physical media. You will never see a raw packet or segment traveling over a cable; they are always carried inside a frame.
+---
+#### How the Layers Interact
+The cooperation within each devices and between devices is what makes network communication possible.
+- **Adjacent-Layer Interaction:** This refers to how a layer on a single device provides services to the layer directly above it and relies on the services of the layer directly below it. For example, Layer 3 relies on Layer 2 to deliver its packets to the next physical hop.
+- **Same-Layer Interaction:** This refers to how equivalent layers on different devices logically communicate with each other. For example, the Transport Layer on your computer sets port number specifically so the Transport layer on the destination server can interpret which application should receive the data.
+---
+### Comparative Tables & Study Charts
+#### TCP/IP vs OSI Model
+While we use the TCP/IP protocol stack to run real-world networks, we keep the 7-layer OSI (Open Systems Interconnection) reference model around as a conceptual reference and teaching tool.
 
-### Benefits of Layering
+|TCP/IP Model (5-Layer)|OSI Model (7-Layer)|Equivalent Functions & Differences|
+|---|---|---|
+|**Application (Layer 5)**|**Application (Layer 7)** <br> **Presentation (Layer 6)** <br> **Session (Layer 5)**|The TCP/IP Application layer combines the duties of formatting, session management, and application interaction into a single layer.|
+|**Transport (Layer 4)**|**Transport (Layer 4)**|Identifies running applications using port numbers and manages end-to-end communication streams.|
+|**Internet (Layer 3)**|**Network (Layer 3)**|Responsible for logical addressing (IP addresses) and routing data across different networks.|
+|**Local Network (Layer 2)**|**Data Link (Layer 2)**|Handles local delivery of data (frames) using physical MAC addresses within a single local area network.|
+|**Physical (Layer 1)**|**Physical (Layer 1)**|Handles the physical transmission of raw binary bits as electrical, optical, or radio signals over hardware.|
+#### Why TCP/IP Defeated the OSI Model
+During the late 1970s and 1980s, governments and committees heavily promoted the OSI model, expecting it to become the global standard. However, TCP/IP won the real-world battle because of its design philosophy:
+- **OSI was too bureaucratic and top-down:** Committees spent years designing highly complex protocols in theory before any vendors actually built or tested them. By the time the standards were finalized, they were too complex to implement efficiently.
+- **TCP/IP was practical and bottom-up:** It was designed and adjusted through real-world implementation on the ARPANET. Because it was published as a set of open, free standards that could run over almost any physical medium, vendors rapidly adopted it
+---
+#### Core Networking Address Hierarchy
 
-- Separation of responsibilities
-- Easier troubleshooting
-- Vendor interoperability
-- Modular protocol replacement
-- Scalability
-- Easier protocol development
-
-Example:
-- HTTP can be replaced with FTP without changing IP or Ethernet.
-- Ethernet can be replaced with Wi-Fi without affecting TCP or HTTP.
+|Addressing Type|Layer|Primary Device|Scope of Address|Purpose|
+|---|---|---|---|---|
+|**Port Number**|Transport (Layer 4)|Endpoint Hosts|Process-to-Process|Identifies the specific software service or application process on a device.|
+|**IP Address**|Internet (Layer 3)|Routers|End-to-End|Identifies the unique host device across multiple networks.|
+|**MAC Address**|Local Network (Layer 2)|Switches|Hop-to-Hop|Identifies the physical interface for local delivery on the same network segment.|
 
 ---
+#### Study & Learning Strategies
 
-### TCP/IP vs OSI Model
+**Jeremy's Big-Picture Advice**
+Do not stress about memorizing every single protocol, port number, or historical date on your first pass through this material.
+- Treat this 5-layer model as a filing cabinet with empty shelves.
+- As you progress through the course and learn about specific routing protocols, switching mechanics, or TCP windowing, you will easily be able to slot those detailed concepts into these general shelves.
+- Real-world protocols do not always fit perfectly into a single layer, and that is completely fine. The model is simply a conceptual tool to help you think about what is happening in the network.
 
-| TCP/IP (5 Layer) | OSI (7 Layer) |
-|------------------|---------------|
-| Application | Application |
-| Application | Presentation |
-| Application | Session |
-| Transport | Transport |
-| Internet | Network |
-| Local Network | Data Link |
-| Physical | Physical |
-
-Notes:
-- TCP/IP is the protocol suite used in real networks.
-- OSI is mainly a conceptual reference model.
-- Many networking resources still refer to layers using OSI numbering (e.g., Layer 2, Layer 3, Layer 7).
-
----
-
-### Important Protocols by Layer
-
-| Layer | Common Protocols |
-|--------|------------------|
-| Application | HTTP, HTTPS, DNS, FTP, TFTP |
-| Transport | TCP, UDP |
-| Internet | IPv4, IPv6, ICMP |
-| Local Network | Ethernet, Wi-Fi |
-| Physical | Copper, Fiber, Radio |
-
----
-
-### Exam Focus (CCNA)
-
-Know:
-- The purpose of each TCP/IP layer.
-- Encapsulation and decapsulation.
-- PDU names (Segment, Datagram, Packet, Frame).
-- Difference between hop-to-hop and end-to-end communication.
-- MAC addresses vs IP addresses vs Port numbers.
-- Adjacent-layer interaction.
-- Same-layer interaction.
-- Basic differences between TCP/IP and OSI.
-
----
-
-## Personal Notes
-- Think of networking as a **delivery service**, where each layer handles one responsibility.
-- Remember the addressing hierarchy:
-  - **Port Number leads to Application/Process**
-  - **IP Address leads to Host**
-  - **MAC Address leads to Next Hop**
-- Routers mainly operate at **Layer 3 (Internet)**.
-- Switches mainly operate at **Layer 2 (Local Network)**.
-- Physical devices transmit **bits**, not packets or frames.
-- Focus on understanding the responsibilities of each layer rather than memorizing every protocol immediately.
-- A useful memory flow:
-  - **Application leads to Process**
-  - **Transport leads to Ports**
-  - **Internet leads to IP**
-  - **Local Network leads to MAC**
-  - **Physical leads to Bits**
+**CCNA Exam Reality Check**
+You do not need to worry about disputed layer names or numbering debates on the actual CCNA exam. In practice, network engineers almost exclusively refer to layers by their numbers (such as saying "Layer 2" or "Layer 3"). The exam focuses heavily on your understanding of encapsulation, decapsulation, PDU names, and the specific duties of each layer.
 
 ## References
 - Jeremy's IT Lab: [How the TCP/IP Model Actually Works | CCNA Day 3](https://youtu.be/yM-XNq9ADlI?si=pC_pcz3AbsZqwqQx)
